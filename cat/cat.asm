@@ -4,7 +4,7 @@
 global _start
 
 section .data
-    usage_str db "[USAGE]: ./program-name <filename>", 0xA
+    usage_str db "[USAGE]: ./program-name <filename>", NEWLINE
     usage_len equ $ - usage_str
 
 section .bss
@@ -71,7 +71,7 @@ _exit_success:
 
 _usage:
     MOV RAX, SYS_WRITE
-    MOV RDI, STDOUT
+    MOV RDI, STDERR         ; stdout is valid too, but let's consider it an error.
     MOV RSI, usage_str
     MOV RDX, usage_len
     syscall
