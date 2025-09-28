@@ -16,10 +16,10 @@ array_max:
     CMP RSI, 0
     JE _empty_array
 
-    ; "First element.
+    ; First element.
     MOV RAX, [RDI]
 
-    ; Loop counter ,RCX, to 1.
+    ; Loop counter, RCX, to 1.
     MOV RCX, 1
 
 _loop:
